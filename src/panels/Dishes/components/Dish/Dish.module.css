@@ -1,0 +1,24 @@
+.cell {
+  padding: 0;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.chevronIcon {
+  color: var(--vkui--color_icon_tertiary);
+  margin-left: 12px;
+}
+
+.extraSubtitle {
+  color: var(--vkui--color_text_primary);
+}
+
+@media (min-width: 768px) {
+  .cell {
+    margin-bottom: 16px;
+  }
+}

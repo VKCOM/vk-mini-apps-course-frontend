@@ -1,0 +1,8 @@
+.container {
+  padding: 0;
+}
+
+.newPrice {
+  color: var(--vkui--color_text_positive);
+  margin-left: 4px;
+}

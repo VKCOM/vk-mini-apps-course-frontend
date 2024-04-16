@@ -1,0 +1,9 @@
+.col {
+  background-color: var(--vkui--color_background_content);
+}
+
+@media (max-width: 768px) {
+  .colWithAds {
+    padding-bottom: 60px;
+  }
+}

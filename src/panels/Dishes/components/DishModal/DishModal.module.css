@@ -1,0 +1,14 @@
+.iconFavorite {
+  color: #ffa000;
+  margin-right: 6px;
+}
+
+.headerRatingBtn {
+  color: var(--vkui--color_text_primary);
+  display: flex;
+  align-items: center;
+}
+
+.emptyModal {
+  height: 236px;
+}

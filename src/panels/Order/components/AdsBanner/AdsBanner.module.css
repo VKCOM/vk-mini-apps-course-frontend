@@ -1,0 +1,11 @@
+.playBtn {
+  color: var(--vkui--color_icon_positive);
+}
+
+.banner {
+  background-color: var(--vkui--color_background_positive_tint);
+}
+
+.bannerOpacity {
+  opacity: 0.2;
+}

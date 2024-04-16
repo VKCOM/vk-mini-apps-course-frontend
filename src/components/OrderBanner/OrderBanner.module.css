@@ -1,0 +1,7 @@
+.containerBg {
+  background-color: var(--vkui--color_background_accent);
+}
+
+.container {
+  margin-bottom: 0;
+}

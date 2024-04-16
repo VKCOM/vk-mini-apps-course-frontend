@@ -1,0 +1,10 @@
+.container {
+  padding: 0 20px;
+  background-color: var(--vkui--color_background_content);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}

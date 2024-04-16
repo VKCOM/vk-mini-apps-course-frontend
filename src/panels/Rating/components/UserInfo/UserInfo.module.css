@@ -1,0 +1,9 @@
+.extraSubtitle {
+  color: var(--vkui--color_text_primary);
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    margin: 8px 0;
+  }
+}

@@ -1,0 +1,7 @@
+.completedIcon {
+  color: var(--vkui--color_icon_positive);
+}
+
+.canceledIcon {
+  color: var(--vkui--color_icon_negative);
+}

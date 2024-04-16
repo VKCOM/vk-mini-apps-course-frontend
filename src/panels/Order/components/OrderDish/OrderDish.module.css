@@ -1,0 +1,17 @@
+.subtitle {
+  color: var(--vkui--color_text_secondary);
+}
+
+.icon {
+  color: var(--vkui--color_icon_accent);
+}
+
+.dishContainer {
+  padding: 0 12px;
+}
+
+@media (max-width: 768px) {
+  .dishContainer {
+    padding-bottom: 0 16px;
+  }
+}

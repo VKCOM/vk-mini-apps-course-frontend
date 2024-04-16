@@ -1,0 +1,12 @@
+.container {
+  padding-bottom: 108px;
+  background-color: var(--vkui--color_background_content);
+}
+
+.container.withBanner {
+  padding-top: 88px;
+}
+
+.errorIcon {
+  color: var(--vkui--color_icon_negative);
+}

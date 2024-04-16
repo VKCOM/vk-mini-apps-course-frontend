@@ -1,0 +1,22 @@
+:root {
+  --segment-btn-height-margin: -13px;
+}
+
+.segment {
+  padding: 0 80px 24px;
+  position: relative;
+  margin-top: var(--segment-btn-height-margin);
+  width: 209px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --segment-btn-height-margin: -16px;
+  }
+}

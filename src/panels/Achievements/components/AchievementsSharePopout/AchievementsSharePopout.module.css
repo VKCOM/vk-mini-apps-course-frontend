@@ -1,0 +1,8 @@
+.shareOptionsPopout {
+  padding-bottom: 20px;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  width: calc(100% - 32px);
+  max-width: 350px;
+}

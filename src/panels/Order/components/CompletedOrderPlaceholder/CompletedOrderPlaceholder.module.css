@@ -1,0 +1,7 @@
+.completedIcon {
+  color: var(--vkui--color_icon_positive);
+}
+
+.placeholder {
+  padding: 12px 8px;
+}

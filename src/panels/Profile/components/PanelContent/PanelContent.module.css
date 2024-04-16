@@ -1,0 +1,11 @@
+.container.withBanner {
+  padding-top: 76px;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 8px;
+  }
+  .container.withBanner {
+    padding-top: 76px;
+  }
+}

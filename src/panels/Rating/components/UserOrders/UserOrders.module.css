@@ -1,0 +1,15 @@
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.ordersLength {
+  color: var(--vkui-light-text-text-subhead);
+  margin-left: 4px;
+}
+
+@media (min-width: 768px) {
+  .title {
+    margin-bottom: 16px;
+  }
+}

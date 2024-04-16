@@ -1,0 +1,11 @@
+.chevronIcon {
+  color: var(--vkui--color_icon_tertiary);
+}
+
+.successIcon {
+  color: var(--vkui--color_icon_positive);
+}
+
+.errorIcon {
+  color: var(--vkui--color_icon_negative);
+}

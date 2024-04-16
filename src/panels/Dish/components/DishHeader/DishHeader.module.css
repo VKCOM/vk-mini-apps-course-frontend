@@ -1,0 +1,7 @@
+.likeBtnIcon {
+  color: var(--vkui--color_icon_negative);
+}
+
+.dishName {
+  text-wrap: wrap;
+}

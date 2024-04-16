@@ -1,0 +1,28 @@
+.ratingIcon,
+.ratingTitle {
+  color: var(--vkui--color_text_secondary);
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.ratingBtn:not(.disabled):hover .ratingIcon,
+.ratingBtn:not(.disabled):hover ~ .ratingBtn .ratingIcon,
+.ratingIcon.rated {
+  color: var(--vkui--color_accent_orange);
+}
+
+@media (max-width: 768px) {
+  .rating {
+    padding: 6px 12px;
+  }
+}

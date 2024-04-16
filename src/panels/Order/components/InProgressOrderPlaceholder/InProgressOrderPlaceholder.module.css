@@ -1,0 +1,20 @@
+.statusesContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.placeholderImg {
+  width: 160px;
+  height: 146px;
+}
+
+.placeholder {
+  padding: 12px 8px;
+}
+
+@media (min-width: 768px) {
+  .statusesContainer {
+    justify-content: center;
+  }
+}

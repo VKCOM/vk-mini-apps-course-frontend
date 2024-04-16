@@ -1,0 +1,13 @@
+.chevronIcon {
+  color: var(--vkui--color_icon_tertiary);
+}
+
+.completedIcon {
+  color: var(--vkui--color_icon_positive);
+  margin-right: 12px;
+}
+
+.canceledIcon {
+  color: var(--vkui--color_icon_negative);
+  margin-right: 12px;
+}

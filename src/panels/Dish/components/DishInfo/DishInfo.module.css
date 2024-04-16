@@ -1,0 +1,11 @@
+.withBanner {
+  padding-top: 88px;
+}
+
+.restaurantName {
+  color: var(--vkui--color_icon_accent_themed);
+}
+
+.container {
+  padding-bottom: 68px;
+}

@@ -1,0 +1,19 @@
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  max-height: 455px;
+}
+
+@media (max-width: 768px) {
+  .imgContainer {
+    height: 216px;
+  }
+}

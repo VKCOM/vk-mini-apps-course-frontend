@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subhead {
+  margin-top: 6px;
+  text-align: center;
+  max-width: 105px;
+}
+
+.baseCell {
+  align-self: baseline;
+}

@@ -1,0 +1,9 @@
+.formItem label {
+  position: relative;
+}
+
+.formItem label::after {
+  content: '*';
+  color: var(--vkui--color_text_negative);
+  padding-left: 2px;
+}

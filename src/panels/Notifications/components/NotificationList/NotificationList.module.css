@@ -1,0 +1,7 @@
+.withBanner {
+  padding-top: 76px;
+}
+
+.container {
+  background-color: var(--vkui--color_background_content);
+}

@@ -24,3 +24,5 @@ build.zip
 *.njsproj
 *.sln
 *.sw?
+
+.env

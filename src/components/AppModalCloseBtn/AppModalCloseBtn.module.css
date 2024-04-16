@@ -1,0 +1,9 @@
+.headerCloseBtn {
+  color: var(--vkui--color_icon_tertiary);
+}
+
+@media (min-width: 768px) {
+  .headerCloseBtn {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+.header {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.address {
+  cursor: pointer;
+}
+
+.address label::after {
+  content: '*';
+  color: var(--vkui--color_text_negative);
+  padding-left: 2px;
+}

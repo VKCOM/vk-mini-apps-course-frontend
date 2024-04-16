@@ -1,0 +1,33 @@
+.infoIcon {
+  color: var(--vkui--color_icon_tertiary);
+}
+
+.extraSubtitle {
+  color: var(--vkui--color_text_primary);
+}
+
+.counter {
+  background-color: var(--vkui--color_background_content);
+  color: var(--vkui--color_text_primary);
+}
+
+.cell:nth-child(2) .counter {
+  background-color: #ffd54f;
+  color: var(--vkui--color_icon_contrast);
+}
+
+.cell:nth-child(3) .counter {
+  background-color: #b0bec5;
+  color: var(--vkui--color_icon_contrast);
+}
+
+.cell:nth-child(4) .counter {
+  background-color: #ffa726;
+  color: var(--vkui--color_icon_contrast);
+}
+
+@media (max-width: 768px) {
+  .cell {
+    padding: 6px 12px;
+  }
+}

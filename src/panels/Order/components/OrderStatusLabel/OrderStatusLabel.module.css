@@ -1,0 +1,25 @@
+.cell {
+  color: var(--vkui--color_text_secondary);
+  padding: 0 10px;
+}
+
+.cell span {
+  word-break: keep-all;
+}
+
+.cell:nth-child(3) span,
+.cell:nth-child(4) span {
+  white-space: nowrap;
+}
+
+.cell.isActiveCell {
+  color: var(--vkui--color_text_primary);
+}
+
+.cell.isVisitedCell {
+  opacity: 0.64;
+}
+
+.cell.isActiveIcon {
+  color: var(--vkui--color_icon_accent);
+}

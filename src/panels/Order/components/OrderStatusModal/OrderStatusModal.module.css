@@ -1,0 +1,17 @@
+.successIcon {
+  color: var(--vkui--color_icon_positive);
+}
+
+.errorIcon {
+  color: var(--vkui--color_icon_negative);
+}
+
+.emptyModal {
+  height: 236px;
+}
+
+@media (max-width: 768px) {
+  .copySnackbar {
+    top: 460px;
+  }
+}
