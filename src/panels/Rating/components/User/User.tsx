@@ -66,16 +66,16 @@ const User = ({ user, index }: Props) => {
         )
       }
       subtitle={joinWithDots(
-        `${lvl} уровень`,
-        `${orders_count} ${plural(
+        `${lvl || 0} уровень`,
+        `${orders_count || 0} ${plural(
           ['заказ', 'заказа', 'заказов'],
-          orders_count,
+          orders_count || 0,
         )}`,
       )}
       extraSubtitle={
         id !== ownerId && (
           <Footnote weight="3" className={styles.extraSubtitle}>
-            {compatibilityValue(compatibility)}
+            {compatibilityValue(compatibility || 0)}
           </Footnote>
         )
       }

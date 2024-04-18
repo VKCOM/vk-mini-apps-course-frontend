@@ -33,7 +33,7 @@ const PanelContent = ({ isLoading, profile, hasOrderInProgress }: Props) => {
     >
       <Spacing size={8} />
       <ProfileInfo {...profile} />
-      {Boolean(profile.achievements.length) && (
+      {profile.achievements && profile.achievements.length && (
         <>
           <ProfileAchievements
             achievements={profile.achievements}

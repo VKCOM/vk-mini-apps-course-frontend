@@ -27,15 +27,16 @@ export const useGetFriends = (tab: ETab | null) => {
         fetchedUsersResult.forEach((user: TUserFromBack) => {
           usersFromBack[user.id] = user;
         });
-        // @ts-expect-error TS2322: result didnt describe in VKWebAppGetUserInfo docs
-        const { result: usersInfo } = await bridge.send('VKWebAppGetUserInfo', {
+
+        const usersInfo = await bridge.send('VKWebAppGetUserInfo', {
           // @ts-expect-error TS2322: user_ids didnt describe in VKWebAppGetUserInfo docs
           user_ids: Object.keys(usersFromBack).join(','),
         });
-
-        const usersFromBridge = Array.isArray(usersInfo)
-          ? usersInfo
-          : [{ ...usersInfo }];
+        // @ts-expect-error TS2322: result didnt describe in VKWebAppGetUserInfo docs
+        const usersFromBridge = usersInfo.result
+          ? // @ts-expect-error TS2322:
+            [...usersInfo.result]
+          : [usersInfo];
 
         // @ts-expect-error TS2322: return type didnt describe in VKWebAppGetUserInfo docs
         const users: TUser[] = usersFromBridge.map((user: UserInfo) => ({

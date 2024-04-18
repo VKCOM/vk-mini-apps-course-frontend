@@ -7,7 +7,6 @@ import {
 } from '@vkontakte/vkui';
 import { useRouteNavigator, useParams } from '@vkontakte/vk-mini-apps-router';
 
-import { OrderInProgress } from 'components';
 import { normalizeError } from 'helpers';
 import { getOrder } from 'api/orders';
 import { DataContext } from 'context/data';
@@ -93,11 +92,9 @@ const OrderPanel = ({ id }: PanelProps) => {
       <PanelHeader fixed before={<PanelHeaderBack onClick={handleButton} />}>
         Заказ
       </PanelHeader>
-      <OrderInProgress />
       <PanelContent
         isLoading={isLoading}
         error={error}
-        hasOrderInProgress={Boolean(orderInProgress)}
         order={order}
         currentAddress={currentAddress}
         loadOrder={loadOrder}

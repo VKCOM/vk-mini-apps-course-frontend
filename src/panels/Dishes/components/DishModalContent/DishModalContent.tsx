@@ -1,4 +1,4 @@
-import { useContext, useState, ReactElement } from 'react';
+import { useContext, useState, ReactElement, useEffect } from 'react';
 import {
   Placeholder,
   Title,
@@ -16,7 +16,7 @@ import {
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 
 import { ErrorSnackbar } from 'components';
-import { joinGroup } from 'helpers';
+import { joinGroup, vkApiFetch } from 'helpers';
 import { getDishes } from 'api/dishes';
 import { setFavourite } from 'api/restaurants';
 import { DataContext } from 'context/data';
@@ -30,10 +30,26 @@ type Props = {
 };
 
 const DishModalContent = ({ content }: Props) => {
+  const [isGroupMember, setGroupMember] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [snackbar, setSnackbar] = useState<ReactElement | null>(null);
   const { id, is_favourite, restaurant } = content;
   const routeNavigator = useRouteNavigator();
   const dataContext = useContext(DataContext);
+  const profile = dataContext?.data?.profile;
+
+  const checkIsMember = async () => {
+    if (!profile) {
+      return;
+    }
+    const { response } = await vkApiFetch('groups.isMember', {
+      group_id: restaurant.group_id,
+      user_id: profile.id,
+    });
+
+    setGroupMember(!!response);
+    setLoading(false);
+  };
 
   const showErrorSnackbar = () => {
     if (snackbar) return;
@@ -44,8 +60,13 @@ const DishModalContent = ({ content }: Props) => {
     void routeNavigator.push(`/dish/${id}`);
   };
 
-  const joinRestaurantGroup = () => {
-    joinGroup(restaurant.group_id);
+  const joinRestaurantGroup = async () => {
+    try {
+      await joinGroup(restaurant.group_id);
+      setGroupMember(true);
+    } catch (err) {
+      console.log('Ошибка выполнения VKWebAppJoinGroup:', err);
+    }
   };
 
   const handleFavouriteBtn = async () => {
@@ -66,6 +87,10 @@ const DishModalContent = ({ content }: Props) => {
     }
   };
 
+  useEffect(() => {
+    checkIsMember();
+  }, []);
+
   return (
     <>
       <Div className={styles.container}>
@@ -83,10 +108,12 @@ const DishModalContent = ({ content }: Props) => {
             mode="primary"
             stretched
             size="m"
-            before={<Icon24Add />}
+            before={!isGroupMember && <Icon24Add />}
             onClick={joinRestaurantGroup}
+            disabled={isGroupMember}
+            loading={isLoading}
           >
-            Подписаться
+            {isGroupMember ? 'Вы подписаны' : 'Подписаться'}
           </Button>
           <Button
             mode="secondary"

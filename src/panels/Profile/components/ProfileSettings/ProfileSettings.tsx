@@ -32,6 +32,7 @@ const ProfileSettings = () => {
     <Group mode="plain" separator="hide">
       <SimpleCell
         before={<Icon28Notifications />}
+        disabled
         after={
           <Switch checked={Boolean(vk_are_notifications_enabled)} disabled />
         }

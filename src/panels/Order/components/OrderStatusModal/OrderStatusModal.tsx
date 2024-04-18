@@ -112,7 +112,7 @@ const OrderStatusModal = ({ onClose }: Props) => {
       orderSteps.find((step) => step.status === status) || orderSteps[0],
     );
 
-    if (status !== EOrderStatus.COMPLETED) {
+    if (isDeliveryInProgress) {
       const timer = setTimeout(() => {
         loadOrder();
       }, 5000);
@@ -198,7 +198,12 @@ const OrderStatusModal = ({ onClose }: Props) => {
 
       <OrderDish
         isDeliveryInProgress={isDeliveryInProgress}
-        dish={{ ...order.dish, price: order.price }}
+        dish={{
+          ...order.dish,
+          price: Number(
+            Math.ceil(order.price * ((100 - order.discount) / 100)),
+          ),
+        }}
         orderId={order.id}
         parsedDishOptions={''}
         onCancelOrder={onCancelOrder}

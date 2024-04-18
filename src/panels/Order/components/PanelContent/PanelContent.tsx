@@ -1,6 +1,6 @@
 import { useEffect, useState, ReactElement, useContext } from 'react';
 import { TransactionResult } from '@vkontakte/vk-bridge';
-import { Div, classNames, Snackbar, Button } from '@vkontakte/vkui';
+import { Div, Snackbar, Button } from '@vkontakte/vkui';
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import { Icon28ErrorCircleOutline } from '@vkontakte/icons';
 
@@ -26,7 +26,6 @@ type Props = {
   isLoading: boolean;
   error: Error | null;
   order: TOrder | null;
-  hasOrderInProgress: boolean;
   currentAddress?: TAddress | null;
   loadOrder: () => void;
 };
@@ -35,7 +34,6 @@ const PanelContent = ({
   isLoading,
   error,
   order,
-  hasOrderInProgress,
   currentAddress,
   loadOrder,
 }: Props) => {
@@ -198,11 +196,7 @@ const PanelContent = ({
 
   return (
     <>
-      <Div
-        className={classNames(styles.container, {
-          [styles.withBanner]: hasOrderInProgress,
-        })}
-      >
+      <Div className={styles.container}>
         <Dish dish={order.dish} navigateToDish={navigateToDish} />
         <OrderContent
           deliveryPrice={order.delivery_price}
