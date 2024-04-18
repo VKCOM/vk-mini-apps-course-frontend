@@ -46,7 +46,9 @@ const OrderRating = ({ orderId, onClose, rate }: Props) => {
     <>
       {' '}
       <Group className={styles.rating}>
-        <Paragraph className={styles.ratingTitle}>Как вам заказ?</Paragraph>
+        <Paragraph className={styles.ratingTitle}>
+          {rate ? 'Оценка заказа' : 'Как вам заказ?'}
+        </Paragraph>
         <ButtonGroup mode="horizontal" gap="s" className={styles.stars}>
           {rating.map((star) => (
             <IconButton

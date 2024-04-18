@@ -42,11 +42,21 @@ const Notification: FC<TNotification> = ({
       }
       caption={text}
       actions={
-        action && (
-          <Button mode="secondary" size="s" onClick={notificationAction}>
+        action &&
+        (status === EOrderStatus.FAILED ? (
+          <Button
+            mode="secondary"
+            size="s"
+            href={'https://vk.com/vkappsdev'}
+            target="_blank"
+          >
             {action.title}
           </Button>
-        )
+        ) : (
+          <Button mode="secondary" size="s" onClick={notificationAction}>
+            {status === EOrderStatus.SUCCESS ? 'Открыть заказ' : action.title}
+          </Button>
+        ))
       }
     >
       {title}

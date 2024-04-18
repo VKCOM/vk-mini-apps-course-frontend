@@ -1,10 +1,11 @@
-import { useState, ReactElement } from 'react';
+import { useState, ReactElement, useContext } from 'react';
 import { Title, CellButton, SimpleCell } from '@vkontakte/vkui';
 import { Icon24Like, Icon24LikeOutline } from '@vkontakte/icons';
 
 import { ErrorSnackbar } from 'components';
 import { getDishes } from 'api/dishes';
 import { setFavourite } from 'api/restaurants';
+import { DataContext } from 'context/data';
 import { TDish } from 'panels/Dishes/types';
 
 import styles from './DishHeader.module.css';
@@ -14,16 +15,27 @@ const DishHeader = ({ is_favourite, name, restaurant }: TDish) => {
   const [isFavouriteAttr, setFavouriteAttr] = useState(is_favourite);
   const LikeIcon = isFavouriteAttr ? Icon24Like : Icon24LikeOutline;
 
+  const dataContext = useContext(DataContext);
+
   const showErrorSnackbar = () => {
     if (snackbar) return;
     setSnackbar(<ErrorSnackbar onClose={() => setSnackbar(null)} />);
   };
 
-  const handleLikeBtnClick = () => {
+  const handleLikeBtnClick = async () => {
     try {
       setFavouriteAttr((value) => !value);
-      setFavourite(restaurant.id);
-      getDishes();
+      await setFavourite(restaurant.id);
+      const fetchedDishes = await getDishes();
+
+      if (!dataContext || !fetchedDishes) {
+        return;
+      }
+
+      dataContext.setData({
+        ...dataContext.data,
+        dishes: fetchedDishes,
+      });
     } catch {
       showErrorSnackbar();
     }
