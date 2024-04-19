@@ -16,8 +16,8 @@ import { TUser } from 'panels/Rating/types';
 import { PanelContent, RatingTabs } from './components';
 import { ETab } from './consts';
 
-const userCellLength = 80;
-const visibleUserCells = 7;
+const USER_CELL_LENGTH = 80;
+const VISIBLE_USER_CELLS_PER_PAGE = 7;
 
 type Props = {
   id: string;
@@ -44,7 +44,7 @@ const RatingPanel = ({ id, adsBannerPadding }: Props) => {
         width: APP_WIDTH,
         height:
           APP_HEIGHT +
-          (usersLength - visibleUserCells - 1) * userCellLength +
+          (usersLength - VISIBLE_USER_CELLS_PER_PAGE - 1) * USER_CELL_LENGTH +
           adsBannerPadding,
       });
     } catch (err) {
