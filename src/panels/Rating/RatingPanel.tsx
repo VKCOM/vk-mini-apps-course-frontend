@@ -11,9 +11,13 @@ import { useSearchParams } from '@vkontakte/vk-mini-apps-router';
 
 import { useGetFriends } from 'hooks';
 import { DataContext } from 'context/data';
+import { APP_WIDTH, APP_HEIGHT } from 'consts/app';
 import { TUser } from 'panels/Rating/types';
 import { PanelContent, RatingTabs } from './components';
 import { ETab } from './consts';
+
+const userCellLength = 80;
+const visibleUserCells = 7;
 
 type Props = {
   id: string;
@@ -37,8 +41,11 @@ const RatingPanel = ({ id, adsBannerPadding }: Props) => {
   const resizeWindow = async (usersLength: number) => {
     try {
       await bridge.send('VKWebAppResizeWindow', {
-        width: 800,
-        height: 800 + (usersLength - 8) * 80 + adsBannerPadding,
+        width: APP_WIDTH,
+        height:
+          APP_HEIGHT +
+          (usersLength - visibleUserCells - 1) * userCellLength +
+          adsBannerPadding,
       });
     } catch (err) {
       console.log('Ошибка выполнения VKWebAppResizeWindow:', err);

@@ -32,11 +32,6 @@ const App = () => {
   const profile = dataContext?.data?.profile;
   const [adsBannerPadding, setAdsBannerPadding] = useState(0);
 
-  const checkBannerAds = async () => {
-    const bannerAdsResult = await showBannerAds();
-    setAdsBannerPadding(bannerAdsResult?.banner_height ?? 0);
-  };
-
   useOnboardSlides();
   useProfile();
   enableSwipe();
@@ -46,6 +41,11 @@ const App = () => {
     if (!profile?.is_ads_enabled) {
       return;
     }
+
+    const checkBannerAds = async () => {
+      const bannerAdsResult = await showBannerAds();
+      setAdsBannerPadding(bannerAdsResult?.banner_height ?? 0);
+    };
 
     checkBannerAds();
   }, [profile]);
