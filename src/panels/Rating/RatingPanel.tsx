@@ -77,8 +77,8 @@ const RatingPanel = ({ id, adsBannerPadding }: Props) => {
 
     return () => {
       bridge.send('VKWebAppResizeWindow', {
-        width: 800,
-        height: 800,
+        width: APP_WIDTH,
+        height: APP_HEIGHT,
       });
     };
   }, [users]);
