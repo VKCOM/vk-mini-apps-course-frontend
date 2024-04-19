@@ -1,5 +1,5 @@
-import { useContext, useEffect } from 'react';
-import { View, Epic, SplitLayout, SplitCol, classNames } from '@vkontakte/vkui';
+import { useContext, useEffect, useState } from 'react';
+import { View, Epic, SplitLayout, SplitCol } from '@vkontakte/vkui';
 import {
   useActiveVkuiLocation,
   usePopout,
@@ -30,7 +30,12 @@ const App = () => {
   const routerPopout = usePopout();
   const dataContext = useContext(DataContext);
   const profile = dataContext?.data?.profile;
-  const isPaddingNeeded = profile?.is_ads_enabled;
+  const [adsBannerPadding, setAdsBannerPadding] = useState(0);
+
+  const checkBannerAds = async () => {
+    const bannerAdsResult = await showBannerAds();
+    setAdsBannerPadding(bannerAdsResult?.banner_height ?? 0);
+  };
 
   useOnboardSlides();
   useProfile();
@@ -42,7 +47,7 @@ const App = () => {
       return;
     }
 
-    showBannerAds();
+    checkBannerAds();
   }, [profile]);
 
   /*
@@ -51,11 +56,7 @@ const App = () => {
   */
   return (
     <SplitLayout modal={<AppModalRoot />} popout={routerPopout}>
-      <SplitCol
-        className={classNames(styles.col, {
-          [styles.colWithPadding]: isPaddingNeeded,
-        })}
-      >
+      <SplitCol className={styles.col}>
         <Epic
           activeStory={activeView ?? EView.DISHES}
           tabbar={
@@ -77,7 +78,10 @@ const App = () => {
             <NotificationsPanel id={EPanel.NOTIFICATIONS} />
           </View>
           <View id={EView.RATING} activePanel={activePanel}>
-            <RatingPanel id={EPanel.RATING} />
+            <RatingPanel
+              id={EPanel.RATING}
+              adsBannerPadding={adsBannerPadding}
+            />
           </View>
         </Epic>
       </SplitCol>
