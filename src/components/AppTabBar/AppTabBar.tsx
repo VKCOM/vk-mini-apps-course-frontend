@@ -25,7 +25,7 @@ const AppTabBar = ({ activeStory, isHidden }: Props) => {
   return (
     <Tabbar hidden={isHidden}>
       <TabbarItem
-        onClick={() => void routeNavigator.push('/rating')}
+        onClick={() => void routeNavigator.push('/rating?tab=all')}
         selected={activeStory === EView.RATING}
         data-story={EView.RATING}
         text="Рейтинг"

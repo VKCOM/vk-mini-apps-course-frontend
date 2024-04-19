@@ -21,18 +21,18 @@ const RatingTabs = ({ tab }: Props) => {
     <FixedLayout vertical="top" filled className={styles.container}>
       <Tabs>
         <TabsItem
-          selected={tab === ETab.FRIENDS}
-          onClick={() => handleTabChange(ETab.FRIENDS)}
-          id={ETab.FRIENDS}
-        >
-          Друзья
-        </TabsItem>
-        <TabsItem
           selected={tab === ETab.ALL}
           onClick={() => handleTabChange(ETab.ALL)}
           id={ETab.ALL}
         >
           Все
+        </TabsItem>
+        <TabsItem
+          selected={tab === ETab.FRIENDS}
+          onClick={() => handleTabChange(ETab.FRIENDS)}
+          id={ETab.FRIENDS}
+        >
+          Друзья
         </TabsItem>
       </Tabs>
     </FixedLayout>
