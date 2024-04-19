@@ -19,7 +19,7 @@
     "@vkontakte/vk-mini-apps-router": "^1.4.3",
     "@vkontakte/vkui": "^6.0.2",
     "axios": "^1.6.0",
-    "mmr-gl": "^0.1.372",
+    "mmr-gl": "^0.2.43",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
